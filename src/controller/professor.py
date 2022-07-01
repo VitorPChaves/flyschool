@@ -3,7 +3,6 @@ from src.entity.professor import Professor
 
 class InstructorController:
     def __init__(self):
-        self.__instructor = Professor()
         self.__instructors = []
 
         self.__professor1 = Professor('567.456.789-10', '123', 18, 70, True)
