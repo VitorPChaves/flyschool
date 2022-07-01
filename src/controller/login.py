@@ -17,7 +17,7 @@ class LoginController:
         for aluno in alunos:
             if aluno.cpf == cpf and aluno.senha == senha:
                 # open schedule
-                self.__login_window.open_schedule()
+                self.__system.open_schedule_window()
             else:
                 self.__login_window.notify('Dados incorretos!')
 
@@ -25,11 +25,11 @@ class LoginController:
         try:
             window_navigation_options = {
                 None: self.__system.exit,
-                Login.LOGIN: self.authentication,
+                Login.LOGIN: self.authentication
             }
             while True:
                 options = self.__login_window.login_window()
-                selected_option = window_navigation_options[options]
-                selected_option()
+                selected_option = window_navigation_options[options['action']]
+                selected_option(cpf=options['user']['cpf'], senha=options['user']['senha'])
         except Exception as e:
             self.__login_window.notify(str(e))

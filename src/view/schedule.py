@@ -1,12 +1,6 @@
 import PySimpleGUI as sg
 
-from src.controller.agenda import ScheduleController
-
-
 class Schedule:
-
-    def __init__(self):
-        self.__agenda = ScheduleController()
 
     @staticmethod
     def schedule_window():
@@ -18,7 +12,10 @@ class Schedule:
             [sg.Button('VAGA')],
         ]
 
-        return sg.Window('FlySchool Agenda', layout=layout, finalize=True)
+        window = sg.Window('FlySchool Agenda', layout=layout, finalize=True)
+        button, values = window.read()
+        window.close()
+        return button
 
     def read_schedule_window(self):
         window = self.schedule_window()

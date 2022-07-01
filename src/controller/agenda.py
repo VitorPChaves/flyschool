@@ -2,9 +2,6 @@ from ..view import schedule
 
 from src.entity.aluno import Aluno
 from src.entity.aula import Aula
-from src.entity.professor import Professor
-from src.entity.paraquedas import Paraquedas
-
 from src.controller.professor import InstructorController
 from src.controller.paraquedas import ParachuteController
 
@@ -13,7 +10,7 @@ class ScheduleController:
 
     def __init__(self, system_controller):
         self.__schedule_window = schedule.Schedule()
-        self.__class = Aula()
+        #self.__class = Aula()
         self.__instructor_controller = InstructorController()
         self.__parachute_controller = ParachuteController()
         self.__system = system_controller
@@ -49,15 +46,15 @@ class ScheduleController:
         try:
             action_options = {
                 None: self.__system.exit,
-                MenuBoundary.SHUTDOWN: self.__system_controller.shutdown,
-                MenuBoundary.OPEN_PROFILE: self.see_client_profile,
-                MenuBoundary.SCHEDULE_SERVICE: self.see_schedule_service_screen
+                #MenuBoundary.SHUTDOWN: self.__system_controller.shutdown,
+                #MenuBoundary.OPEN_PROFILE: self.see_client_profile,
+                #MenuBoundary.SCHEDULE_SERVICE: self.see_schedule_service_screen
             }
             while True:
-                option_number = self.__menu_screen.open_menu_client()
+                option_number = self.__schedule_window.schedule_window()
                 selected_function = action_options[option_number]
                 selected_function()
         except Exception as e:
-            self.__menu_screen.show_message(str(e))
+            self.__schedule_window.notify(str(e))
 
 

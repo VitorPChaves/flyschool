@@ -4,7 +4,6 @@ from src.entity.paraquedas import Paraquedas
 class ParachuteController:
 
     def __init__(self):
-        self.__parachute = Paraquedas()
         self.__parachute_inventory = []
 
         self.__parachute1 = Paraquedas('Vermelho', True)
