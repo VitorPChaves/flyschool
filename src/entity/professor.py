@@ -3,8 +3,8 @@ from src.entity.turno import Turno
 
 
 class Professor(Atleta):
-    def __init__(self, cpf: str, senha: str, idade: int, peso: int, disponivel: bool):
-        super().__init__(cpf, senha, idade, peso)
+    def __init__(self, cpf: str, senha: str, idade: int, peso: int, turno: Turno, disponivel: bool):
+        super().__init__(cpf, senha, idade, peso, turno)
         if isinstance(disponivel, bool):
             self.__disponivel = disponivel
 

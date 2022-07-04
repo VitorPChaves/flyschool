@@ -1,3 +1,4 @@
+from src.entity import Aluno
 from src.entity.paraquedas import Paraquedas
 
 
@@ -18,11 +19,11 @@ class ParachuteController:
         self.__parachute_inventory.append(self.__parachute2)
         self.__parachute_inventory.append(self.__parachute3)
 
-    def check_parachutes(self, aluno):
+    def check_parachutes(self, aluno: Aluno):
         for index, parachute in self.__parachute_inventory:
             next_parachute = self.__parachute_inventory[index + 1]
 
-            # Checa se há paraquedas disponíveis
+            # Checa se há paraquedas disponíveis e retorna um valor booleano
             if parachute.status:
                 if aluno.nivel == 'EXPERIENTE':
                     # self.__parachute.status = False
@@ -36,13 +37,16 @@ class ParachuteController:
                     return True
         return False
 
+    # Deve "encher" cada aula com paraquedas disponiveis após o instrutor confirmar a aula e dar presença aos alunos
     def refill_parachutes(self):
         for parachute in self.__parachute_inventory:
             parachute.status = True
 
-    def reserve_parachutes(self, paraquedas):
-        paraquedas.status = False
+    def reserve_parachutes(self, parachute):
+        parachute.status = False
         print(self.__parachute_inventory)
+        print(parachute)
+        print(parachute.status)
 
 
 

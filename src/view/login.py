@@ -11,15 +11,17 @@ class Login:
     @staticmethod
     def login_window():
         layout = [
-            [sg.Text('CPF', size=(6, 1))],
+            [sg.Text('CPF')],
             [sg.InputText(size=(30, 1), key='cpf')],
-            [sg.Text('SENHA', size=(6, 1))],
-            [sg.InputText(size=(30, 1), key='senha')],
+            [sg.Text('SENHA')],
+            [sg.InputText(size=(30, 1), key='senha',  password_char='*')],
             [sg.Button('Entrar', key=Login.LOGIN)],
         ]
-        window = sg.Window('FlySchool Login', layout=layout, finalize=True)
+        window = sg.Window('FlySchool Login', layout=layout, finalize=True, resizable=True, element_justification='c')
         event, values = window.read()
+
         window.close()
+
         # Retorna um array com a opção clicada e quem clicou
         return {'action': event, 'user': values}
 

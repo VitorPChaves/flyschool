@@ -1,12 +1,13 @@
 from src.entity.professor import Professor
+from src.entity.turno import Turno
 
 
 class InstructorController:
     def __init__(self):
         self.__instructors = []
 
-        self.__professor1 = Professor('567.456.789-10', '123', 18, 70, True)
-        self.__professor2 = Professor('765.456.789-10', '123', 20, 90, True)
+        self.__professor1 = Professor('567.456.789-10', '123', 18, 70, Turno(1), True)
+        self.__professor2 = Professor('765.456.789-10', '123', 20, 90, Turno(2), True)
 
         self.__instructors.append(self.__professor1)
         self.__instructors.append(self.__professor2)
