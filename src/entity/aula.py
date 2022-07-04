@@ -11,7 +11,7 @@ class Aula:
             self.__turno = turno
         if isinstance(paraquedas, Paraquedas):
             self.__paraquedas = paraquedas
-        if isinstance(dia, str):
+        if isinstance(dia, int):
             self.__dia = dia
 
     @property
@@ -21,7 +21,7 @@ class Aula:
     @aluno.setter
     def aluno(self, aluno: Aluno):
         if isinstance(aluno, Aluno):
-            self.aluno = aluno
+            self.__aluno = aluno
 
     @property
     def turno(self) -> Turno:
@@ -30,7 +30,7 @@ class Aula:
     @turno.setter
     def turno(self, turno: Turno):
         if isinstance(turno, Turno):
-            self.turno = turno
+            self.__turno = turno
 
     @property
     def paraquedas(self) -> Paraquedas:
@@ -39,7 +39,7 @@ class Aula:
     @paraquedas.setter
     def paraquedas(self, paraquedas: Paraquedas):
         if isinstance(paraquedas, Paraquedas):
-            self.paraquedas = paraquedas
+            self.__paraquedas = paraquedas
 
     @property
     def dia(self) -> str:

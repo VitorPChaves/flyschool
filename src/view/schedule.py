@@ -4,11 +4,11 @@ from src.entity import Aluno
 
 
 class Schedule:
-    SEGUNDA = 1
-    TERCA = 2
-    QUARTA = 3
-    QUINTA = 6
-    SEXTA = 7
+    SEGUNDA = {'matutino': '11', 'vespertino': '12'}
+    TERCA = {'matutino': '21', 'vespertino': '22'}
+    QUARTA = {'matutino': '31', 'vespertino': '32'}
+    QUINTA = {'matutino': '41', 'vespertino': '42'}
+    SEXTA = {'matutino': '51', 'vespertino': '52'}
 
     @staticmethod
     def schedule_window(aluno: Aluno):
@@ -17,12 +17,8 @@ class Schedule:
             [sg.Text('Aluno: '), sg.Text(str(aluno.cpf))],
             [sg.Text('Turno: '), sg.Text(str(aluno.turno))],
             [sg.Text('Segunda'), sg.Text('Terca'), sg.Text('Quarta'), sg.Text('Quinta'), sg.Text('Sexta')],
-            [sg.Button('VAGA', key=Schedule.SEGUNDA), sg.Button('VAGA', key=Schedule.TERCA), sg.Button('VAGA', key=Schedule.QUARTA), sg.Button('VAGA', key=Schedule.QUINTA), sg.Button('VAGA', key=Schedule.TERCA)],
-            [sg.Button('VAGA', key=Schedule.SEGUNDA), sg.Button('VAGA', key=Schedule.TERCA), sg.Button('VAGA', key=Schedule.QUARTA), sg.Button('VAGA', key=Schedule.QUINTA), sg.Button('VAGA', key=Schedule.TERCA)],
-            [sg.Button('VAGA', key=Schedule.SEGUNDA), sg.Button('VAGA', key=Schedule.TERCA), sg.Button('VAGA', key=Schedule.QUARTA), sg.Button('VAGA', key=Schedule.QUINTA), sg.Button('VAGA', key=Schedule.TERCA)],
-            [sg.Button('VAGA', key=Schedule.SEGUNDA), sg.Button('VAGA', key=Schedule.TERCA), sg.Button('VAGA', key=Schedule.QUARTA), sg.Button('VAGA', key=Schedule.QUINTA), sg.Button('VAGA', key=Schedule.TERCA)],
-            [sg.Button('VAGA', key=Schedule.SEGUNDA), sg.Button('VAGA', key=Schedule.TERCA), sg.Button('VAGA', key=Schedule.QUARTA), sg.Button('VAGA', key=Schedule.QUINTA), sg.Button('VAGA', key=Schedule.TERCA)],
-        ]
+            [sg.Button('Matutino', key=Schedule.SEGUNDA['matutino']), sg.Button('Matutino', key=Schedule.TERCA['matutino']), sg.Button('Matutino', key=Schedule.QUARTA['matutino']), sg.Button('Matutino', key=Schedule.QUINTA['matutino']), sg.Button('Matutino', key=Schedule.SEXTA['matutino'])],
+            [sg.Button('Vespertino', key=Schedule.SEGUNDA['vespertino']), sg.Button('Vespertino', key=Schedule.TERCA['vespertino']), sg.Button('Vespertino', key=Schedule.QUARTA['vespertino']), sg.Button('Vespertino', key=Schedule.QUINTA['vespertino']), sg.Button('Vespertino', key=Schedule.SEXTA['vespertino'])],]
 
         window = sg.Window('FlySchool Agenda', layout=layout, finalize=True, resizable=True, element_justification='c')
         button, values = window.read()

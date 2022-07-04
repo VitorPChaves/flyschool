@@ -1,10 +1,13 @@
 from src.entity.abstract.atleta import Atleta
+from src.entity.day import Day
 
 
 class Paraquedas:
-    def __init__(self, cor: str, status: bool):
+    def __init__(self, cor: str, status: bool, day: Day):
         if isinstance(cor, str):
             self.__cor = cor
+        if isinstance(day, Day):
+            self.__day = day
         if isinstance(status, bool):
             self.__status = status
 
@@ -25,3 +28,12 @@ class Paraquedas:
     def status(self, status: bool):
         if isinstance(status, bool):
             self.__status = status
+
+    @property
+    def day(self) -> Day:
+        return self.__day
+
+    @day.setter
+    def day(self, day: Day):
+        if isinstance(day, Day):
+            self.__day = day
